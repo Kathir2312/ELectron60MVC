@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    const {ipcRenderer} = require('electron');
+    const {remote} = require('electron');
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <form method="post" >
+            <h1>@ViewData["userN"]</h1>
+                    <div class="demo-controls">
+                        <button class="demo-button" onclick="ipcRenderer.send('new-window', {data: 'hello'})" id="new-window">View Demo</button>
+                    </div>
+                    <button onclick="remote.getCurrentWindow().close()">Close Window</button>
+                    </form>
+</div>
